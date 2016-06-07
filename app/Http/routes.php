@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('rsvp');
 });
+
+Route::get('/thankyou', function () {
+    return view('thankyou');
+});
+
+Route::post('/thankyou', ['as' => 'thankyou', 'uses' => 'RSVPController@store']);
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+//Route::get('/index', 'RSVPController@index');
